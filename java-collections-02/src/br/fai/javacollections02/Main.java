@@ -1,5 +1,6 @@
 package br.fai.javacollections02;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
@@ -12,6 +13,7 @@ public class Main {
 	}
 	
 	private Map<String, String> mapa = new HashMap<String, String>();
+	// private Map<String, String> mapa = null;
 	
 	private void start() {
 		
@@ -24,23 +26,30 @@ public class Main {
 	
 	private void adicionarItensNoMapa() {
 		
-		mapa.put("SRS", "Santa Rita do Sapucai");
-		mapa.put("PA", "Pouso Alegre");
-		mapa.put("SRS", "Santa Rita");
-		mapa.put("SRS", "Santa");
-		mapa.put("ITA", "Itajuba");
-		mapa.put("ZORO", "Conceição dos Ouros");
-		mapa.put("CAXU", "Cachoeira de Minas");
+		try {
+			mapa.put("SRS", "Santa Rita do Sapucai");
+			mapa.put("PA", "Pouso Alegre");
+			mapa.put("ITA", "Itajuba");
+			mapa.put("ZORO", "Conceição dos Ouros");
+			mapa.put("CAXU", "Cachoeira de Minas");
+			
+			System.out.println("cheguei no fim do try");
+			
+		}catch (Exception e) {
+			System.out.println("ocorreu uma exceção");
+		}
+		
+		finally {
+			System.out.println("cheguei no finally");
+		}
 	}
 	
 	private void exibirValorDoMapaPelaChave(String chave) {
 		
 		String valorDoItemNoMapa = mapa.get(chave);
-		if (valorDoItemNoMapa == null
-				|| valorDoItemNoMapa.isEmpty())
+		if (valorDoItemNoMapa == null || valorDoItemNoMapa.isEmpty()) {
 			System.out.println("esta chave não" + "está presente no mapa: " + chave);
-		System.out.println("o valor dessa chave é: " + mapa.get(chave));
-	}else {
+			}else {
 		System.out.println("o valor dessa chave é: " + mapa.get(chave));
 	}
 
